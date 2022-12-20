@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import Left from "./components/Left";
+import Dashboard from "./pages/Dashboard";
+import PostManagement from "./pages/PostManagement";
+import UserManagement from "./pages/UserManagement";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex">
+      <Left />
+      <Routes>
+        <Route path="/" exact element={<Dashboard />} />
+        <Route path="/userManagement" exact element={<UserManagement />} />
+        <Route path="/postManagement" exact element={<PostManagement />} />
+        {/* <Route path="/users/:id" exact element={<Users />} />
+        <Route path="/add-user" exact element={<Add />} />
+        <Route path="/edit-user/:id" exact element={<Edit />} /> */}
+      </Routes>
     </div>
   );
-}
-
+};
 export default App;
